@@ -9,7 +9,7 @@ Dated = 31 Dec 2014
 
 class LinExp:
 
-   global constr,var_id_dict, var_id_count
+   global constr, var_id_dict, var_id_count
 
    constr = 0
    var_id_dict = {}
@@ -23,7 +23,6 @@ class LinExp:
         self.sense = []
         self.rhs = []
         self.name = []
-
         self.var_dict = {}
         self.var_count = -1
         self.vName = []
@@ -40,9 +39,7 @@ class LinExp:
        self.vName.append(var.get("vname"))
        self.vLb.append(var.get("vlb"))
        self.vUb.append(var.get("vub"))
-
        self.vType.append(var.get("vtype"))
-
 
    def getVar(self):
        return self.vObj, self.vLb, self.vUb, self.vType, self.vName
@@ -50,7 +47,6 @@ class LinExp:
    def addTerm(self,var_id,coeff):
 
        global var_id_dict, var_id_count
-
        self.var.append(var_id)
        self.coeff.append(coeff)
        if len(self.var) != len(set(self.var)):
@@ -100,7 +96,19 @@ class LinExp:
    def getExp(self):
        return self.rhs,self.sense,self.name,self.Exp
 
+   def sol(self, val):
 
+       temp = {}
+       keys = self.var_dict.keys()
+       for v in keys:
+           temp[v] = val[self.var_dict[v]]
+       return temp
+
+   def printSol(self, val):
+
+       keys = self.var_dict.keys()
+       for v in keys:
+           print v, ":", val[self.var_dict[v]]
 
 #-----------------------------------------
 

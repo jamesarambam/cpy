@@ -36,23 +36,6 @@ exp = jc.LinExp()
 prob = cplex.Cplex()
 prob.objective.set_sense(prob.objective.sense.maximize)
 
-# ---------- Add Variables Old --------------
-
-# var_names = []
-# var_obj =[]
-# var_type = []
-# var_ub = []
-# var_indx = -1
-# var_lb = []
-# var_obj = [1.0, 2.0, 3.0]
-# var_ub  = [40.0, cplex.infinity, cplex.infinity]
-# var_names = ["x1", "x2", "x3"]
-# var_dict = {}
-# var_dict["x1"] = var_names.index("x1")
-# var_dict["x2"] = var_names.index("x2")
-# var_dict["x3"] = var_names.index("x3")
-# prob.variables.add(obj = var_obj, ub = var_ub, names = var_names)
-
 # ----------- Add Variables New Method ----------
 
 exp.addVar(vobj = 1.0, vlb = 0, vub = 40.0, vtype = "C", vname = "x1")

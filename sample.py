@@ -2,7 +2,7 @@ __author__ = 'james'
 
 import cpy as jc
 import os
-import auxLib as ax
+# import auxLib as ax
 import sys
 
 # -------------- Problem ----------------
@@ -21,13 +21,13 @@ Bounds :
 
 # -------------------------------
 
-o = ax.getOS()
-if o == "ubuntu":
-    sys.path.append("/opt/ibm/ILOG/CPLEX_Studio125/cplex/python/x86_sles10_4.1")
-if o == "centos":
-    sys.path.append("/home/ajsingh/cplex/cplex/python/x86-64_sles10_4.1")
-if o == "mac":
-    sys.path.append("/Users/james/Applications/IBM/ILOG/CPLEX_Studio1261/cplex/python/2.7/x86-64_osx")
+# o = ax.getOS()
+# if o == "ubuntu":
+#     sys.path.append("/opt/ibm/ILOG/CPLEX_Studio125/cplex/python/x86_sles10_4.1")
+# if o == "centos":
+#     sys.path.append("/home/ajsingh/cplex/cplex/python/x86-64_sles10_4.1")
+# if o == "mac":
+#     sys.path.append("/Users/james/Applications/IBM/ILOG/CPLEX_Studio1261/cplex/python/2.7/x86-64_osx")
 import cplex
 
 # --------------------------------
@@ -42,8 +42,8 @@ exp.addVar(vobj = 1.0, vlb = 0, vub = 40.0, vtype = "C", vname = "x1")
 exp.addVar(vobj = 2.0, vlb = 0, vub = cplex.infinity, vtype = "C", vname = "x2")
 exp.addVar(vobj = 3.0, vlb = 0, vub = cplex.infinity, vtype = "C", vname = "x3")
 var_obj, var_lb, var_ub, var_type, var_name = exp.getVar()
-prob.variables.add(obj = var_obj, lb = var_lb, ub = var_ub, names = var_name)
-#prob.variables.add(obj = var_obj, lb = var_lb, ub = var_obj, types = var_type, names = var_name)
+# prob.variables.add(obj = var_obj, lb = var_lb, ub = var_ub, names = var_name)
+prob.variables.add(obj = var_obj, lb = var_lb, ub = var_obj, types = var_type, names = var_name)
 
 
 # --------- Add Constraints ----------------
